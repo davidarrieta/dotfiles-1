@@ -1,6 +1,43 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                                                                           "                
+"                                                                                           "   
+"                                                                                           "
+"                                                                                           "
+"                                                                                           "
+" __   _____ __  __        __   ___   ___ __  __                         _   ___   __       "
+" \ \ / /_ _|  \/  |  ___  \ \ / (_) |_ _|  \/  |_ __ _ _ _____ _____ __| | ( _ ) /  \      "
+"  \ V / | || |\/| | |___|  \ V /| |  | || |\/| | '_ \ '_/ _ \ V / -_) _` | / _ \| () |     "
+"   \_/ |___|_|  |_|         \_/ |_| |___|_|  |_| .__/_| \___/\_/\___\__,_| \___(_)__/      "
+"                                               |_|                                         "
+"                                                                                           "
+"                                                                                           "
+"                                                                                           "
+"                                                                                           "
+"                                                                                           "
+" Sections:
+"
+"    -> General
+"    -> Plugins
+"    -> Colors and Fonts
+"    -> Misc
+"
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
+
+" Sets how many lines of history VIM has to remember
+set history=500
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Vundle says requires this option be enabled to work properly
 filetype off
@@ -31,6 +68,10 @@ let g:airline_solarized_bg='dark'
 "Set the theme of ViM airline to solarized
 let g:airline_theme='solarized'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "Line numbers are good
 set number
 
@@ -40,8 +81,9 @@ syntax enable
 "To enable by default 256 colors in vim
 set t_Co=256
 
-"lots of command line history
-set history=1000 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Misc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "All of your Plugins must be added before the following line
 call vundle#end()            "required
