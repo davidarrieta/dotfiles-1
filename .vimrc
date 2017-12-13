@@ -55,6 +55,26 @@ Plugin 'scrooloose/nerdtree'
 " Keybind to open NerdTree with Ctrl + n
 map <C-n> :NERDTreeToggle<CR>
 
+" Vim Multiple Cursors plugin, Sublime Text's awesome multiple selection feature into Vim. 
+Plugin 'terryma/vim-multiple-cursors'
+
+"Ctrl-n, Ctrl-p, Ctrl-x, and <Esc> are mapped in the special multicursor mode once you've added at least one virtual cursor to 
+"the buffer. If you don't like the plugin taking over your favorite key bindings, you can turn off the default with:
+
+let g:multi_cursor_use_default_mapping=0
+
+"You can then map the 'next'(Siguiente), 'previous'(Anterior), 'skip'(<E>scapar), and 'exit(' keys like the following:
+
+let g:multi_cursor_next_key='<A-n>'
+let g:multi_cursor_prev_key='<A-p>'
+let g:multi_cursor_skip_key='<A-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+"By default, the 'next' key is also used to enter multicursor mode. If you want to use a different key to start multicursor mode than for selecting the next location, do like the following:
+
+" Map start key separately from next key
+let g:multi_cursor_start_key='<F6>'
+
 "CtrlP plugin
 Plugin 'ctrlpvim/ctrlp.vim'
 
