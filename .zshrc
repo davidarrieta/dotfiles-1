@@ -83,13 +83,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # Quick command to modify .zshrc
 alias zshconfig="vim ~/.zshrc"
-# Ping, but faster
+# Quick command to know if the internet works properly
 alias p="ping -c 3 google.com"
 # Just an ls more colorful
 alias ls="ls --color=yes"
-# To avoid typos
+# To avoid typos with ls. I'm using latin keyboard.
 alias ñs="ls --color=yes"
-# Mount, but faster and better with udisk2
+# Quick command to mount a USB, flash drive, hard drive etc. I like how udisksctl mounts.
 alias m="udisksctl mount -b"
 # Same, but unmount
 alias um="udisksctl unmount -b"
@@ -101,7 +101,7 @@ alias paclias="less /home/claudio/.oh-my-zsh/plugins/archlinux/README.md"
 alias sudo='sudo '
 # Quick access to modify .vimrc 
 # "cv" stands for Customize Vim
-# Además, las letras "c" y "v" están bastante cerca la una de la otra en el teclado QWERTY
+# In addition, the letters "c" and "v" are quite close to each other on the QWERTY keyboard.
 alias cv="vim .vimrc"
 # Search for packages in Arch with pacman. "spp" stands for "Search pacman packages"
 alias spp="pacman -Q | grep "
@@ -119,12 +119,13 @@ alias suclean="sudo pacman -Scc && pacaur -Scc && sudo pacman-optimize"
 alias mirror="sudo cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup && sudo reflector --verbose -l 10 --sort score -p http -p https --sort rate --save /etc/pacman.d/mirrorlist"
 # Using vim as pager, like less
 alias less="/usr/share/vim/vim80/macros/less.sh"
+# Using vim as cat.
+alias cat="vimcat"
 # Find the 10 most heavy files in a folder
 alias hefi="du -hsx * | sort -rh | head -10"
 # Edit i3 conf with vim and much faster
 alias vi3="vim ~/.config/i3/config"
-# Vim being cat
-alias cat="vimcat"
+
 
 export EDITOR="vim"
 export PAGER="vimpager"
