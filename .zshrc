@@ -75,57 +75,13 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# Quick command to modify .zshrc
-alias zshconfig="vim ~/.zshrc"
-# Quick command to know if the internet works properly
-alias p="ping -c 3 google.com"
-# Just an ls more colorful
-alias ls="ls --color=yes"
-# To avoid typos with ls. I'm using latin keyboard.
-alias ñs="ls --color=yes"
-# Quick command to mount a USB, flash drive, hard drive etc. I like how udisksctl mounts.
-alias m="udisksctl mount -b"
-# Same, but unmount
-alias um="udisksctl unmount -b"
-# Common vi alias
-alias vi="vim"
-# How to use the "archlinux" plugin that comes with oh-my-zsh
-alias paclias="less /home/claudio/.oh-my-zsh/plugins/archlinux/README.md"
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
-# Quick access to modify .vimrc 
-# "cv" stands for Customize Vim
-# In addition, the letters "c" and "v" are quite close to each other on the QWERTY keyboard.
-alias cv="vim .vimrc"
-# Search for packages in Arch with pacman. "spp" stands for "Search pacman packages"
-alias spp="pacman -Q | grep "
-# Quick command to rm -r 
-alias rr="rm -r"
-# Purge a package with pacman
-alias purge="sudo pacman -Rnscu"
-# Clear the screen of the terminal, but faster.
-alias c="clear"
-# Remove old packages in pacman cache and optimize pacman with the script pacman-optimize 
-alias clean="sudo pacman -Sc && pacaur -Sc && sudo pacman-optimize"
-# Just a more savage clean :)
-alias suclean="sudo pacman -Scc && pacaur -Scc && sudo pacman-optimize"
-# Use Reflector to improve the speed of Arch mirrors. First do a backup of /etc/pacman.d/mirrorlist.
-alias mirror="sudo cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup && sudo reflector --verbose -l 10 --sort score -p http -p https --sort rate --save /etc/pacman.d/mirrorlist"
-# Using vim as pager, like less
-alias less="/usr/share/vim/vim80/macros/less.sh"
-# Using vim as cat.
-alias cat="vimcat"
-# Find the 10 most heavy files in a folder
-alias hefi="du -hsx * | sort -rh | head -10"
-# Edit i3 conf with vim and much faster
-alias vi3="vim ~/.config/i3/config"
-
+source /home/claudio/.zsh_aliases 
 
 export EDITOR="vim"
 export PAGER="vimpager"
+
+# To ls automatically after cd
+#function chpwd() {
+#    emulate -L zsh
+#    ls -a
+# }

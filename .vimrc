@@ -108,3 +108,9 @@ set t_Co=256
 "All of your Plugins must be added before the following line
 call vundle#end()            "required
 filetype plugin indent on    "required
+
+"Toggle line numbers both in normal and insert mode
+" (in this example, they're bound to the F3 key)
+noremap <F3> :set invnumber<CR>
+inoremap <F3> <C-O>:set invnumber<CR>
+
