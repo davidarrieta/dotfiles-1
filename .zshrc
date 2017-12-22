@@ -79,6 +79,7 @@ source /home/claudio/.zsh_aliases
 
 export EDITOR="vim"
 export PAGER="vimpager"
+export TERM"termite"
 
 # To ls automatically after cd
 #function chpwd() {

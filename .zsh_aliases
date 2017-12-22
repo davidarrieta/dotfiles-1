@@ -4,9 +4,9 @@ alias zshconfig="vim ~/.zshrc"
 # Ping, but faster
 alias p="ping -c 3 google.com"
 # Just an ls more colorful
-alias ls="ls --color=yes"
+alias ls="ls --color=yes --group-directories-first"
 # To avoid typos
-alias ñs="ls --color=yes"
+alias ñs="ls --color=yes --group-directories-first"
 # Mount, but faster and better with udisk2
 alias m="udisksctl mount -b"
 # Same, but unmount
@@ -45,4 +45,40 @@ alias vi3="vim ~/.config/i3/config"
 alias cat="vimcat"
 # Quick command to modify .zsh_aliases. "cza" stands for "Configure zsh aliases".
 alias cza="vim ~/.zsh_aliases"
+# To avoid typos pasting from webs
+alias nano="vim"
+# lulz
+alias emacs="vim"
+alias iv="vim"
+# Be more verbose and interactive with cp, mv and rm.
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -i"
 
+# Command to quickly download and convert to mp3 a song from youtube
+alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
+
+# See the most heavy files in a folder 
+alias duf='du -sh *'
+
+# Find directories by their name
+alias fd='find . -type d -name'
+# Find files by their name
+alias ff='find . -type f -name'
+
+# Generate a playlist in .m3u for mpd
+alias genplaylist="cd ~/Música;find . -name '*.mp3' -o -name '*.flac' -o -name '*.mp4'|sed -e 's%^./%%g' > ~/.mpd/playlists/all.m3u"
+
+#█▓▒░ update mpd database
+function genplaylist() {
+  cd ~/music
+  find . -name '*.mp3' -o -name '*.flac'|sed -e 's%^./%%g' > ~/.config/mpd/playlists/all.m3u
+  mpc clear
+  mpc load all.m3u
+  mpc update
+}
+
+alias todo="vim ~/.todo"
+
+alias lsg="ls | grep -i"
+alias lsag="ls -a | grep -i"
