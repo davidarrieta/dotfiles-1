@@ -43,7 +43,7 @@ mode "$mode_gaps" {
 #Mini bordes
 for_window [class="Nautilus"] border pixel 0
 for_window [class="^.*"] border pixel 1
-for_window [class=Gnome-calculator] border pixel 0
+for_window [class="Gnome-calculator"] border pixel 0
 
 # Blurme script!
 
@@ -74,22 +74,22 @@ for_window [urgent=latest] focus
 bindsym $mod+d exec --no-startup-id "rofi -modi \\"run,drun\\" -show run -lines 6"
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-#bindsym $mod+l focus up
-bindsym $mod+ntilde focus right
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+h focus left
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
+## alternatively, you can use the cursor keys:
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
+#
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ntilde move right
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -98,10 +98,12 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Right split h
+bindsym $mod+Left split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Up split v
+bindsym $mod+Down split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -124,7 +126,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Bindkeys for common applications
-bindsym $mod+t exec xfce4-terminal --hide-borders --hide-toolbar --hide-menubar  
+#bindsym $mod+t exec xfce4-terminal --hide-borders --hide-toolbar --hide-menubar  
 
 # Set default names to workspaces 
 
@@ -210,6 +212,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -f 'pango: SF-Pro-Display-Regula
 
 #Certain windows always in float(ing) mode
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Mousepad" title="Mousepad"] floating enable resize set 1024 640
 for_window [class="Audacious"] floating enable resize set 1024 640
 for_window [class="Lxappearance"] floating enable
 for_window [class="Nautilus"] floating enable
@@ -217,12 +220,15 @@ for_window [class="TelegramDesktop"] floating enable resize set 1024 640
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="GParted"] floating enable
 for_window [class="Nitrogen"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="Viewnior"] floating enable
 for_window [class="feh"] floating enable resize set 1024 640
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [window_role="pop-up"] floating enable
+for_window [window_role="pop-up"] floating enable, move absolute center
 for_window [window_role="task_dialog"] floating enable
+for_window [window_role="bubble"] floating enable, move position center
 for_window [title="Preferences$"] floating enable
 for_window [title="Places"] floating enable
 for_window [title="Biblioteca"] floating enable
@@ -236,7 +242,7 @@ bindsym --release button2 kill
 bindsym $mod+button3 floating toggle
 
 # Press $mod+o followed by either f, c, Escape or Return to launch firefox, audacious and the most used apps by me
-set $mode_launcher Launch: [f]irefox [m]usic(ncmpcpp) [n]autilus [v]lc [t]elegram [l]ibreoffice writer 
+set $mode_launcher Launch: [f]irefox [m]usic(ncmpcpp) [n]autilus [v]lc [t]elegram [l]ibreoffice writer [z]athura
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -247,7 +253,7 @@ mode "$mode_launcher" {
     bindsym n exec nautilus
     bindsym v exec vlc 
     bindsym l exec libreoffice --writer
-
+    bindsym z exec zathura
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -276,7 +282,9 @@ mode "$mode_launcher_screenshot" {
 # Aquí, con la tecla Ctrl presionada, sueltas el Impr y aparecerá un cursor # para seleccionar un area de la pantalla 
 bindsym Control+Print exec scrot -q 100 -s '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Imágenes/screenshots'
 
+# By default, window focus follows your mouse movements as the mouse crosses window borders. However, if you have a setup where your mouse usually is in your way (like a touchpad on your laptop which you do not want to disable completely), you might want to disable focus follows mouse and control focus only by using your keyboard. The mouse will still be useful inside the currently active window (for example to click on links in your browser window).
 
+focus_follows_mouse no
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -315,7 +323,7 @@ bindsym XF86AudioPrev exec --no-startup-id mpc prev
 bindsym XF86AudioNext exec --no-startup-id mpc next
 
 # Lock the screen with i3lock and this script
-bindsym $mod+l exec ~/.scripts/i3lock.sh
+bindsym $mod+Ctrl+l exec ~/.scripts/i3lock.sh
 
 # Open calculator with his multimedia key
 bindsym XF86Calculator exec gnome-calculator
