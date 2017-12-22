@@ -91,14 +91,14 @@ font-1 = DejaVuSans:style=Book:size:8
 font-2 = FontAwesome:style=regular:size=10
 
 ;Modulos en la barra, del lado izquierdo tenemos el modulo que me dice en cual workspace estoy
-modules-left = bspwm i3 
+modules-left = bspwm i3 mpd
 
 ;Modulos del centro
 modules-center =  scriptdate 
 
 ;Modulos del lado derecho. En esta parte tenemos el modulo filesystem que nos dice que tan lleno está la raíz en el disco duro, el
 ;modulo de volumen, el de memoria RAM, el de CPU, la fecha y un powermenu que aún no funciona
-modules-right =  filesystem pavolume memory cpu powermenu 
+modules-right =   filesystem pavolume memory cpu powermenu 
 
 
 ;El lugar de la bandeja donde se colocan los iconos como audacious, telegram etc. En este caso está del lado derecho.
@@ -249,17 +249,24 @@ ws-icon-6 = 7;
 [module/mpd]
 type = internal/mpd
 
+host = localhost 
 ; Seconds to sleep between progressbar/song timer sync
 ; Default: 1
 interval = 2
 
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+;format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next> 
+;format-playing = ${self.format-online}
+;format-paused = ${self.format-online}
+;format-stopped = ${self.format-online}
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song = 𝄞 %artist% - %title%
 
 label-song-maxlen = 25
 label-song-ellipsis = true

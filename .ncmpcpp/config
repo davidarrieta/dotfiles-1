@@ -459,7 +459,7 @@ display_bitrate = "no"
 #
 search_engine_default_search_mode = 2
 
-external_editor = vim
+external_editor = "/usr/bin/vim"
 
 ## Note: set to yes if external editor is a console application.
 ##
